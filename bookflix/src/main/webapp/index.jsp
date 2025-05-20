@@ -7,6 +7,6 @@
 <title>Bookflix</title>
 </head>
 <body>
-	<h1>북플릭스</h1>
+	<h1>북플릭스!</h1>
 </body>
 </html>
