@@ -10,6 +10,6 @@ import lombok.Data;
 public class ReadingHistory {
 	
 	private int historyNo, memberNo, bookNo, lastPage;	
-	private Date update_date;
+	private Date updateDate;
 	
 }

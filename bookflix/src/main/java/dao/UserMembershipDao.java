@@ -13,7 +13,7 @@ public class UserMembershipDao implements Dao<UserMembership>{
 	public void insert(UserMembership userMembership) {
 		Connection connection = DBUtil.getConnection();
 		try {
-			PreparedStatement pstmt = connection.prepareStatement("insert into usermembership(member_no, membership_no,end_date) values (?, ?, ?)");
+			PreparedStatement pstmt = connection.prepareStatement("insert into usermembership(member_no, membership_no, end_date) values (?, ?, ?)");
 			pstmt.setString(1, null);
 			pstmt.setString(2, null);
 			pstmt.setString(3, null);

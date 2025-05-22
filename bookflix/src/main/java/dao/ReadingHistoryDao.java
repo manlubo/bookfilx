@@ -12,7 +12,17 @@ import util.DBUtil;
 public class ReadingHistoryDao {
 
 	public void insertReadingHistory() {
-		
+		Connection connection = DBUtil.getConnection();
+		try {
+			PreparedStatement pstmt = connection.prepareStatement("insert into readinghistory(history_no, member_no, book_no, last_page) values (?, ?, ?, ?)");
+			pstmt.setString(1, null);
+			pstmt.setString(2, null);
+			pstmt.setString(3, null);
+			pstmt.setString(4, null);
+			
+			pstmt.executeQuery();
+		}
+		catch (Exception e) {e.printStackTrace();}
 	}
 	
 	public ReadingHistory selectReadingHistory(int no) {
@@ -28,6 +38,7 @@ public class ReadingHistoryDao {
 						.memberNo(rs.getInt("readinghistory_member_no"))
 						.bookNo(rs.getInt("readinghistory_book_no"))
 						.lastPage(rs.getInt("readinghistory_last_page"))
+						.updateDate(rs.getDate("readinghistort_update_date"))
 						.build();
 				return readingHistory;
 			}
