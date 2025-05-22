@@ -9,9 +9,10 @@ import java.sql.ResultSet;
 import domain.ReadingHistory;
 import util.DBUtil;
 
-public class ReadingHistoryDao {
+public class ReadingHistoryDao implements Dao<ReadingHistory>{
 
-	public void insertReadingHistory() {
+	@Override
+	public void insert(ReadingHistory readingHistory) {
 		Connection connection = DBUtil.getConnection();
 		try {
 			PreparedStatement pstmt = connection.prepareStatement("insert into readinghistory(history_no, member_no, book_no, last_page) values (?, ?, ?, ?)");
@@ -25,7 +26,8 @@ public class ReadingHistoryDao {
 		catch (Exception e) {e.printStackTrace();}
 	}
 	
-	public ReadingHistory selectReadingHistory(int no) {
+	@Override
+	public ReadingHistory selectOne(int no) {
 		Connection connection = DBUtil.getConnection();
 		try {
 			PreparedStatement pstmt = connection.prepareStatement("select * from readinghistory where history_no = ?");
