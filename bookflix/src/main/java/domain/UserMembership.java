@@ -11,6 +11,6 @@ public class UserMembership {
 	private int userMembershipNo;
 	private int memberNo;
 	private int membershipNo;
-	private Date start_date;
-	private Date end_date;
+	private Date startDate;
+	private Date endDate;
 }
