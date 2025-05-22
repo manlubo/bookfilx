@@ -11,7 +11,7 @@ public class UserMembershipDao implements Dao<UserMembership>{
 
 	@Override
 	public void insert(UserMembership userMembership) {
-		Connection connection = DBUtil.getConeection();
+		Connection connection = DBUtil.getConnection();
 		try {
 			PreparedStatement pstmt = connection.prepareStatement("insert into usermembership(member_no, membership_no,end_date) values (?, ?, ?)");
 			pstmt.setString(1, null);
@@ -27,7 +27,7 @@ public class UserMembershipDao implements Dao<UserMembership>{
 	
 	@Override
 	public UserMembership selectOne(int no) {
-		Connection connection = DBUtil.getConeection();
+		Connection connection = DBUtil.getConnection();
 		try {
 			PreparedStatement pstmt = connection.prepareStatement("select * from usermembership where member_no = ?");
 			pstmt.setInt(1, no);
