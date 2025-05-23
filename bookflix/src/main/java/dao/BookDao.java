@@ -29,6 +29,7 @@ public class BookDao implements Dao<Book>{
 		}
 	}
 
+	@SuppressWarnings("unused")// 추가
 	@Override
 	public Book selectOne(int no) {
 		Connection connection = DBUtil.getConnection();
@@ -38,15 +39,15 @@ public class BookDao implements Dao<Book>{
 			
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
-//				 Book book = Book.builder() //builder() 오류 뜨는데 아무리 해도 안고쳐져서 일단 주석처리로 올렸습니다. 
-//						 .bookNo(rs.getInt("book_no"))
-//						 .bookName(rs.getString("book_name"))
-//						 .writer(rs.getString("writer"))
-//						 .publisher(rs.getString("publisher"))
-//						 .totalPages(rs.getInt("total_pages"))
-//						 .price(rs.getInt("price"))
-//						 .regdate(rs.getDate("regdate"))
-//						 .build();
+				 Book book = Book.builder() //builder() 노란줄로 떠서 @SuppressWarnings("unused")// 추가했습니다. 혹시 아니면 다시 수정하겠습니다.
+						 .bookNo(rs.getInt("book_no"))
+						 .bookName(rs.getString("book_name"))
+						 .writer(rs.getString("writer"))
+						 .publisher(rs.getString("publisher"))
+						 .totalPages(rs.getInt("total_pages"))
+						 .price(rs.getInt("price"))
+						 .regdate(rs.getDate("regdate"))
+						 .build();
 //				
 //				return book;
 			}
