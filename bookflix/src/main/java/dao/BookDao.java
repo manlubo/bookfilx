@@ -29,17 +29,15 @@ public class BookDao implements Dao<Book>{
 		}
 	}
 
-	@SuppressWarnings("unused")// 추가
 	@Override
 	public Book selectOne(int no) {
 		Connection connection = DBUtil.getConnection();
 		try {
 			PreparedStatement pstmt = connection.prepareStatement("select * from book where book_no = ?");
-			pstmt.setInt(1, no);
-			
+			pstmt.setInt(1, no);			
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
-				 Book book = Book.builder() //builder() 노란줄로 떠서 @SuppressWarnings("unused")// 추가했습니다. 혹시 아니면 다시 수정하겠습니다.
+				 Book book = Book.builder()
 						 .bookNo(rs.getInt("book_no"))
 						 .bookName(rs.getString("book_name"))
 						 .writer(rs.getString("writer"))
@@ -48,8 +46,7 @@ public class BookDao implements Dao<Book>{
 						 .price(rs.getInt("price"))
 						 .regdate(rs.getDate("regdate"))
 						 .build();
-//				
-//				return book;
+				return book;
 			}
 		}
 		catch (Exception e) {
