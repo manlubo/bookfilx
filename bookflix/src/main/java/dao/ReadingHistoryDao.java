@@ -15,12 +15,11 @@ public class ReadingHistoryDao implements Dao<ReadingHistory>{
 	public void insert(ReadingHistory readingHistory) {
 		Connection connection = DBUtil.getConnection();
 		try {
-			PreparedStatement pstmt = connection.prepareStatement("insert into readinghistory(history_no, member_no, book_no, last_page) values (?, ?, ?, ?)");
-			pstmt.setString(1, null); // history_no
-			pstmt.setString(2, null); // member_no
-			pstmt.setString(3, null); // book_no
-			pstmt.setString(4, null); // last_page
-			
+			PreparedStatement pstmt = connection.prepareStatement("insert into readinghistory(member_no, book_no, last_page) values (?, ?, ?)");
+			pstmt.setString(1, null); // member_no
+			pstmt.setString(2, null); // book_no
+			pstmt.setString(3, null); // last_page
+
 			pstmt.executeQuery();
 		}
 		catch (Exception e) {e.printStackTrace();}
