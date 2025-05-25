@@ -13,13 +13,12 @@ public class MemberDao implements Dao<Member>{
     public void insert(Member member) {
         Connection connection = DBUtil.getConnection();
         try { //regdate빼고 6
-            PreparedStatement pstmt = connection.prepareStatement("insert into member(member_no, id, pw, name, tel, email) values (?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement pstmt = connection.prepareStatement("insert into member(id, pw, name, tel, email) values (?, ?, ?, ?, ?, ?)");
             pstmt.setString(1, null);
             pstmt.setString(2, null);
             pstmt.setString(3, null);
             pstmt.setString(4, null);
-            pstmt.setString(5, null);
-            pstmt.setString(6, null);
+            pstmt.setString(5, null);          
 
             pstmt.executeQuery();
         }

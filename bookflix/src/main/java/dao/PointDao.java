@@ -12,11 +12,10 @@ public class PointDao implements Dao<Point>{
     @Override
     public void insert(Point point) {
         Connection connection = DBUtil.getConnection();
-        try { //redate빼고 3
-            PreparedStatement pstmt = connection.prepareStatement("insert into member(point_no, member_no, amount) values (?, ?, ?)");
+        try { 
+            PreparedStatement pstmt = connection.prepareStatement("insert into member(member_no, amount) values (?, ?)");
             pstmt.setString(1, null);
             pstmt.setString(2, null);
-            pstmt.setString(3, null);
 
 
             pstmt.executeQuery();
