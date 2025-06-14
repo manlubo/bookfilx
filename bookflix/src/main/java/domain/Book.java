@@ -1,22 +1,22 @@
 package domain;
 
-import java.sql.Date;
+
+import org.apache.ibatis.type.Alias;
+
 import lombok.Builder;
 import lombok.Data;
 
 
 @Data
 @Builder
+@Alias("book")
 public class Book {
 	
-	int bookNo; //회원
-	int totalPages; // 총페이지
-	int price; //가격
-	String bookName; //책 제목
-	String writer;//작가
-	String publisher; //출판사
-	Date regdate;
+	private Long bno; // 책 번호
+	private String name; // 책 제목
+	private String writer;// 작가
+	private String publisher; // 출판사
+	private int pages; // 총 페이지
+	private String regdate; // 등록일
 	
-
-
 }

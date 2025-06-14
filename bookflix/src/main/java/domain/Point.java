@@ -1,15 +1,17 @@
 package domain;
 
-import java.sql.Date;
+
+import org.apache.ibatis.type.Alias;
 
 import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Builder
+@Alias("point")
 public class Point {
-    private int pointNo;
-    private int memberNO;
+    private Long pono;
+    private Long mno;
     private int amount;
-    private Date regDate;
+    private String regdate;
 }
