@@ -48,10 +48,26 @@ public class MemberService {
 		return null;
 	}
 
-	
+	public boolean login(String id, String pw) {
+		try(SqlSession session = MybatisUtil.getSqlSession()) {
+			MemberMapper mapper = session.getMapper(MemberMapper.class);
+			MemberService service = new MemberService();
+			if(id == null || pw == null && service.findById(id) == null) {
+				return false;
+			}
+			
+			Member member = service.findById(id);
+			
+			return PasswordEncoder.matches(pw, member.getPw());
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	public static void main(String[] args) {
 		MemberService service = new MemberService();
-		service.findByNo(1L);
+		
 	}
 }
